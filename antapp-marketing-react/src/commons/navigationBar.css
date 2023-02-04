@@ -24,8 +24,8 @@ carousel-content {
   background-color: white;
 }
 
-/* 丸ボタン */
-.btn-round a {
+/* メニューボタン */
+.btn-nav a {
   width: fit-content;
   position: relative;
   display: flex;
@@ -37,16 +37,16 @@ carousel-content {
   color: #000000;
   /*transition: 0.1s ease-in-out;*/
   /*font-weight: 600;*/
-  background: #fdf134;
+  /*background: #fdf134;*/
   border: solid #0c0c0c;
-  border-width: 1px;
-  border-radius: 4rem;
+  /*border-width: 1px;*/
+  /*border-radius: 4rem;*/
   text-decoration: none;
   /*border-bottom: solid 0.1rem #00396c;*/
 }
-.btn-round a:hover {
-  background: #cec429;
-  color: #000000;
+.btn-nav a:hover {
+  /*background: #cec429;*/
+  /*color: #000000;*/
   /*border-bottom: solid 0rem #00396c;*/
   /*transform: translateY(0.2rem);*/
   text-decoration: none;

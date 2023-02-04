@@ -1,0 +1,122 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+.paperPreview {
+
+  padding: 0 !important;
+}
+
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  width: fit-content;
+  display: flex;
+}
+.embla__slide {
+  text-align: -webkit-center;
+  flex: 0 0 100%;
+}
+
+.carousel-content {
+  background-color: white;
+}
+
+
+/*矢印が右に移動する*/
+.btnarrow4{
+  /*矢印と下線の基点とするためrelativeを指定*/
+  position: relative;
+  /*形状*/
+  display: inline-block;
+  padding: 0 20px;
+  color: #2e8da3;
+  text-decoration: none;
+  outline: none;
+}
+
+/*　Antappとは　*/
+.about {
+  border: solid;
+  border-bottom-color: #0c0c0c;
+}
+.about >.seemore {
+  text-align-last: end;
+}
+
+/*矢印と下線の形状*/
+.btnarrow4::before{
+  content: '';
+  /*絶対配置で下線の位置を決める*/
+  position: absolute;
+  bottom:-8px;
+  left:15%;
+  /*下線の形状*/
+  width: 85%;
+  height: 1px;
+  background:#333;
+  color: #2e8da3;
+  /*アニメーションの指定*/
+  transition: all .3s;
+}
+
+.btnarrow4::after{
+  content: '';
+  /*絶対配置で矢印の位置を決める*/
+  position: absolute;
+  bottom:-3px;
+  right:0;
+  /*矢印の形状*/
+  width: 15px;
+  height:1px;
+  background:#333;
+  transform: rotate(35deg);
+  color: #2e8da3;
+  /*アニメーションの指定*/
+  transition: all .3s;
+}
+
+/*hoverした際の移動*/
+.btnarrow4:hover::before{
+  left:20%;
+}
+
+.btnarrow4:hover::after{
+  right:-5%;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

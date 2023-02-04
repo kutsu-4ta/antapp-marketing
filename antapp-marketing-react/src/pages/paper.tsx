@@ -9,7 +9,7 @@ const Paper = () => {
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
                 <p>
-                    特徴
+                    資料
                 </p>
             </header>
         </div>
