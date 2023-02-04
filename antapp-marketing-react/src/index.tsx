@@ -8,6 +8,7 @@ import Home from './pages/home';
 import Product from './pages/product';
 import Paper from './pages/paper';
 import Contact from './pages/contact';
+import ResponsiveAppBar from "./commons/navigationBar";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -16,6 +17,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
       {/*<App />*/}
+      <ResponsiveAppBar />
       <BrowserRouter>
           <Routes>
               <Route path="/" element={<Home />} />
