@@ -1,17 +1,17 @@
 import React from 'react';
 import logo from "../logo.svg";
 
-const Home = () => {
+const Paper = () => {
     return (
         <div className="App">
-            <h1>
-                ホーム
-            </h1>
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
+                <p>
+                    特徴
+                </p>
             </header>
         </div>
     );
 };
 
-export default Home;
+export default Paper;
