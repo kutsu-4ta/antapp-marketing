@@ -1,4 +1,4 @@
-// import { VFC } from 'react';
+import React from "react";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 type metaTags = {
@@ -7,14 +7,15 @@ type metaTags = {
     path: string;
 };
 
-export const HeaderBlock = (props: metaTags) => {
-    const { title, description, path } = props;
+const HeaderBlock = (props: metaTags) => {
+    // const { title, description, path } = props;
+    // console.log(props);
     return (
         <HelmetProvider>
             <Helmet>
-                <title>{title ?? 'デフォルトのタイトルです'}</title>
-                <meta name="description" content={description ?? 'デフォルトの説明文です'}/>
-                <link rel="canonical" href={`https:hoge.com/${path ?? ''}`}/>
+                <title>{props.title}</title>
+                <meta name="description" content={props.description}/>
+                <link rel="canonical" href={`https:hoge.com/${props.path}`}/>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
             </Helmet>
         </HelmetProvider>
