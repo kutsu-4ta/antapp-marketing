@@ -1,12 +1,11 @@
 import React from 'react';
-import logo from "../logo.svg";
 import Typography from '@mui/material/Typography';
 import HeaderBlock from "../components/headerBlock";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import {styled} from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
-import {Container, Button} from "@mui/material";
+import {Container} from "@mui/material";
 import {EmblaCarousel} from "../commons/carousel";
 import "./home.css";
 
@@ -14,6 +13,7 @@ const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
     padding: theme.spacing(1),
+    boxShadow: 'none',
     textAlign: 'center',
     color: theme.palette.text.secondary,
 }));
@@ -31,11 +31,28 @@ const Home = () => {
                     <Box sx={{ flexGrow: 1 }}>
                         <Grid container spacing={2}>
                             <Grid item xs={12} md={7}>
-                                <Item sx={{border: 'none', boxShadow: 'none', padding: 4, marginY: 2 }}>
-                                    <h1>中小企業のマーケティングを支援する</h1>
+                                <Item>
+                                    <Typography
+                                        variant="h1"
+                                        justifyContent="center"
+                                        fontSize={30}
+                                        noWrap
+                                        sx={{
+                                            mr: 2,
+                                            display: {xs: 'flex', md: 'flex'},
+                                            fontFamily: 'serif',
+                                            fontWeight: 700,
+                                            letterSpacing: '.3rem',
+                                            color: 'inherit',
+                                            textDecoration: 'none',
+                                            boxShadow: 0,
+                                        }}
+                                    >中小企業のマーケティングを支援する
+                                    </Typography>
                                 </Item>
                             </Grid>
                             <Grid item xs={12} md={6}>
+                                <Item className={'title-item'}>
                                     <Typography
                                         variant="subtitle1"
                                         // noWrap
@@ -58,6 +75,7 @@ const Home = () => {
                                             無料相談はこちら
                                         </a>
                                     </span>
+                                </Item>
                             </Grid>
                         </Grid>
                     </Box>
@@ -98,7 +116,7 @@ const Home = () => {
                     </Box>
                 </Paper>
             </Container>
-            {/*　資料　*/}
+
             <Container className="paperPreview" sx={{paddingTop: 10}}>
                 <Paper sx={{border: 'none', boxShadow: 'none', padding: 4, marginY: 2, backgroundColor: 'black'}}>
                     <span className={'btn-round'}>

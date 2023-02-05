@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 import Home from './pages/home';
@@ -9,26 +8,31 @@ import Product from './pages/product';
 import Paper from './pages/paper';
 import Contact from './pages/contact';
 import ResponsiveAppBar from "./commons/navigationBar";
+import { ThemeProvider, CssBaseline } from "@mui/material";
+import myTheme from "./commons/myTheme";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
+const theme = myTheme;
+
 root.render(
   <React.StrictMode>
-      {/*<App />*/}
-      <ResponsiveAppBar />
-      <BrowserRouter>
-          <Routes>
-              <Route path="/" element={<Home />} />
-              {/*<Route path="/home" element={<Home />} />*/}
-              <Route path="/product" element={<Product />} />
-              <Route path="/paper" element={<Paper />} />
-              <Route path="/contact" element={<Contact />} />
-                {/*<Route exact path="/form" component={Form} />*/}
-          </Routes>
-      </BrowserRouter>
-    <App />
+      <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <ResponsiveAppBar />
+          <BrowserRouter>
+              <Routes>
+                  <Route path="/" element={<Home />} />
+                  {/*<Route path="/home" element={<Home />} />*/}
+                  <Route path="/product" element={<Product />} />
+                  <Route path="/paper" element={<Paper />} />
+                  <Route path="/contact" element={<Contact />} />
+                    {/*<Route exact path="/form" component={Form} />*/}
+              </Routes>
+          </BrowserRouter>
+      </ThemeProvider>
   </React.StrictMode>
 );
 
