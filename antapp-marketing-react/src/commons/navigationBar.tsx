@@ -24,7 +24,7 @@ const menuContent = [
         'url' : './product'
     },
     {   'name': '資料',
-        'url' : './paper'
+        'url' : './productPaper'
     },
     {   'name': 'お問合わせ',
         'url' : './contact'

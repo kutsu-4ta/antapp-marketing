@@ -160,7 +160,7 @@ const Home = () => {
             <Container className="paperPreview" sx={{paddingTop: 10}}>
                 <Paper sx={{border: 'none', boxShadow: 'none', padding: 4, marginY: 2, backgroundColor: 'black'}}>
                     <span className={'btn-round'}>
-                        <a href="./paper">
+                        <a href="./productPaper">
                             無料相談はこちら
                         </a>
                     </span>

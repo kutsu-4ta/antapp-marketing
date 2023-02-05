@@ -5,7 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 import Home from './pages/home';
 import Product from './pages/product';
-import Paper from './pages/paper';
+import ProductPaper from './pages/productPaper';
 import Contact from './pages/contact';
 import ResponsiveAppBar from "./commons/navigationBar";
 import { ThemeProvider, CssBaseline } from "@mui/material";
@@ -27,7 +27,7 @@ root.render(
                   <Route path="/" element={<Home />} />
                   {/*<Route path="/home" element={<Home />} />*/}
                   <Route path="/product" element={<Product />} />
-                  <Route path="/paper" element={<Paper />} />
+                  <Route path="/productPaper" element={<ProductPaper />} />
                   <Route path="/contact" element={<Contact />} />
                     {/*<Route exact path="/form" component={Form} />*/}
               </Routes>
