@@ -55,7 +55,7 @@ function ResponsiveAppBar() {
     return (
         <AppBar position='fixed'
         sx={{
-            elevation: 0,
+            boxShadow: 0,
         }}
         >
             <Container maxWidth="xl">
@@ -69,7 +69,7 @@ function ResponsiveAppBar() {
                         sx={{
                             mr: 2,
                             display: { xs: 'none', md: 'flex' },
-                            fontFamily: 'monospace',
+                            fontFamily: 'Hiragino Kaku Gothic ProN',
                             fontWeight: 700,
                             letterSpacing: '.3rem',
                             color: 'inherit',
@@ -138,14 +138,13 @@ function ResponsiveAppBar() {
                         {menuContent.map((menuContent) => (
                             <Button
                                 key={menuContent.name}
-                                onClick={handleCloseNavMenu}
+                                // onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
-                                <span className={"btn-nav"}>
-                                    <a href={menuContent.url}>
-                                        {menuContent.name}
-                                    </a>
-                                </span>
+                                {/* とりあえずaタグのリンク */}
+                                <a href={menuContent.url} style={{textDecoration: 'none', color: 'black'}}>
+                                    {menuContent.name}
+                                </a>
                             </Button>
                         ))}
                     </Box>

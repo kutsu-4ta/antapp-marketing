@@ -47,31 +47,31 @@ export const EmblaCarousel = () => {
             <div className="embla__container"
                  style={{width: 'auto',}}>
                 {productDocuments.map((productDocuments) => (
-                            <div className="embla__slide" key={productDocuments.name}>
-                    <Grid
-                        item xs={4}
-                        spacing={{ xs: 1, sm: 2, md: 4 }}
-                        sx={{
-                            marginTop: 0,
-                            marginBottom: 0
-                        }}
-                    >
-                        <ProductPaperTile className={"btn"}>
-                            <a href={productDocuments.url}>
-                                <Paper
-                                    sx={{border: 'solid',
-                                        borderColor: 'white',
-                                        padding: 0,
-                                        margin:4,
-                                        height:'maxContent',
-                                        boxShadow: 'none'
-                                    }}>
-                                    {productDocuments.name}
-                                </Paper>
-                            </a>
-                        </ProductPaperTile>
-                    </Grid>
-                            </div>
+                    <div className="embla__slide" key={productDocuments.name}>
+                        <Grid
+                            item xs={4}
+                            spacing={{ xs: 1, sm: 2, md: 4 }}
+                            sx={{
+                                marginTop: 0,
+                                marginBottom: 0
+                            }}
+                        >
+                            <ProductPaperTile className={"btn"}>
+                                <a href={productDocuments.url}>
+                                    <Paper
+                                        sx={{border: 'solid',
+                                            borderColor: 'white',
+                                            padding: 0,
+                                            margin:4,
+                                            height:'maxContent',
+                                            boxShadow: 'none'
+                                        }}>
+                                        {productDocuments.name}
+                                    </Paper>
+                                </a>
+                            </ProductPaperTile>
+                        </Grid>
+                    </div>
                 ))}
             </div>
         </div>

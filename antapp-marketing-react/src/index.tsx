@@ -8,6 +8,7 @@ import Product from './pages/product';
 import ProductPaper from './pages/productPaper';
 import Contact from './pages/contact';
 import ResponsiveAppBar from "./commons/navigationBar";
+import Footer from "./commons/footer";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import myTheme from "./commons/myTheme";
 
@@ -32,6 +33,7 @@ root.render(
                     {/*<Route exact path="/form" component={Form} />*/}
               </Routes>
           </BrowserRouter>
+          <Footer />
       </ThemeProvider>
   </React.StrictMode>
 );

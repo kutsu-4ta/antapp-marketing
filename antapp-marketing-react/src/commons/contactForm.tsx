@@ -10,7 +10,7 @@ const ContactForm = () => {
             <Container sx={{paddingTop: 10, paddingBottom: 10}}>
                 <span className={'btn-round'}>
                     <a href="./product">
-                        無料相談はこちら
+                        送信
                     </a>
                 </span>
             </Container>
