@@ -8,6 +8,7 @@ import Paper from "@mui/material/Paper";
 import {Container, Stack} from "@mui/material";
 import {EmblaCarousel} from "../commons/carousel";
 import "./home.css";
+import ContactForm from "../commons/contactForm";
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -171,19 +172,7 @@ const Home = () => {
             </Container>
             {/* お問合せ */}
             <Container sx={{paddingTop: 10, paddingBottom: 10}}>
-                <Paper sx={{border: 'none', boxShadow: 'none', padding: 4, marginY: 2 }}>
-                    <h3> フォーム</h3>
-                    <Box sx={{border: 'black', padding: 4, marginY: 2 }}>
-                        <Paper sx={{border: 'black', boxShadow: 'none', padding: 4, marginY: 2}}>
-                            フォーム
-                        </Paper>
-                    </Box>
-                </Paper>
-                <span className={'btn-round'}>
-                    <a href="./product">
-                        無料相談はこちら
-                    </a>
-                </span>
+                <ContactForm/>
             </Container>
         </div>
     );
