@@ -8,20 +8,11 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
+import MenuItem from '@mui/material/MenuItem';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import "./navigationBar.css";
-
-// const pages = ['ホーム', '特徴', '資料', 'お問合せ'];
-
-type menuContent = [
-    {
-        name: string,
-        url: string,
-    }
-];
 
 const menuContent = [
     {
@@ -62,7 +53,11 @@ function ResponsiveAppBar() {
     };
 
     return (
-        <AppBar position="static">
+        <AppBar position='fixed'
+        sx={{
+            elevation: 0,
+        }}
+        >
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     {/*<AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />*/}
