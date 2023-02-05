@@ -184,12 +184,12 @@ const Contact = () => {
                     >
                         <Item>
                             <span className={'btn-round'}>
-                                <a href="./paper">資料請求</a>
+                                <a href="./productPaper">資料請求</a>
                             </span>
                         </Item>
                         <Item>
                             <span className={'btn-round'}>
-                                <a href="./paper">無料相談はこちら</a>
+                                <a href="./contact">無料相談はこちら</a>
                             </span>
                         </Item>
                     </Stack>
@@ -278,12 +278,12 @@ const Contact = () => {
                 >
                     <Item>
                             <span className={'btn-round'}>
-                                <a href="./paper">資料請求</a>
+                                <a href="./productPaper">資料請求</a>
                             </span>
                     </Item>
                     <Item>
                             <span className={'btn-round'}>
-                                <a href="./paper">無料相談はこちら</a>
+                                <a href="./contact">無料相談はこちら</a>
                             </span>
                     </Item>
                 </Stack>
@@ -389,12 +389,12 @@ const Contact = () => {
                 >
                     <Item>
                             <span className={'btn-round'}>
-                                <a href="./paper">資料請求</a>
+                                <a href="./productPaper">資料請求</a>
                             </span>
                     </Item>
                     <Item>
                             <span className={'btn-round'}>
-                                <a href="./paper">無料相談はこちら</a>
+                                <a href="./contact">無料相談はこちら</a>
                             </span>
                     </Item>
                 </Stack>
