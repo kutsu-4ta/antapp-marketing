@@ -27,17 +27,6 @@ const ProductPaperTile = styled(Paper)(({ theme }) => ({
     padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    height: 200,
-    width: 200,
-}));
-
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    boxShadow: 'none',
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
 }));
 
 const productDocuments = [
@@ -69,7 +58,12 @@ const ProductPaper = () => {
                 description={'資料の説明'}
             />
             <Container sx={{paddingTop: 10, paddingRight: 'inherit', paddingLeft: 'inherit'}}>
-                <Paper sx={{border: 'none', boxShadow: 'none', padding: 4, marginY: 2}}>
+                <Paper sx={{
+                    border: 'none',
+                    boxShadow: 'none',
+                    padding: 4,
+                    marginY: 2,
+                }}>
                     <Typography
                         variant="h2"
                         justifyContent="center"
@@ -95,12 +89,15 @@ const ProductPaper = () => {
                                     key={productDocuments.name}
                                     item xs={4}
                                     spacing={{ xs: 1, sm: 2, md: 4 }}
-                                    sx = {{marginTop: 10}}
+                                    sx={{marginTop: 10}}
                                 >
-                                    <ProductPaperTile className={"btn"}>
-                                        <a href={productDocuments.url}>
-                                            {productDocuments.name}
-                                        </a>
+                                    <ProductPaperTile className={"btn"}
+                                        sx={{
+                                            height: {xs: 100, md: 200},
+                                    }}>
+                                            <a href={productDocuments.url}>
+                                                {productDocuments.name}
+                                            </a>
                                     </ProductPaperTile>
                                 </Grid>
                             ))}

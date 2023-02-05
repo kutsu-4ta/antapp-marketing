@@ -110,7 +110,11 @@ function ResponsiveAppBar() {
                         >
                             {menuContent.map((menuContent) => (
                                 <MenuItem key={menuContent.name} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{menuContent.name}</Typography>
+                                    {/*<Typography textAlign="center">{menuContent.name}</Typography>*/}
+                                    {/* とりあえずaタグのリンク */}
+                                    <a href={menuContent.url} style={{textDecoration: 'none', color: 'black'}}>
+                                        {menuContent.name}
+                                    </a>
                                 </MenuItem>
                             ))}
                         </Menu>
