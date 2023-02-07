@@ -14,11 +14,6 @@ import {
         contactTextAreaState
     } from '../atoms/contactFormState';
 
-type InputForm = {
-    name: string;
-    birthday: string;
-};
-
 const ContactForm = () => {
     const [contactName, setContactName] = useRecoilState(contactNameState);
     const [contactEmail, setContactEmail] = useRecoilState(contactEmailState);
@@ -30,37 +25,26 @@ const ContactForm = () => {
     const onChangeNameHandler = (event: React.ChangeEvent<HTMLInputElement>) =>{
         const formInputs = event.target.value;
         setContactName(formInputs);
-        console.log(event.target.value);
     }
-
     const onChangeEmailHandler = (event: React.ChangeEvent<HTMLInputElement>) =>{
         const formInputs = event.target.value;
         setContactEmail(formInputs);
-        console.log(event.target.value);
     }
-
     const onChangeCompanyHandler = (event: React.ChangeEvent<HTMLInputElement>) =>{
         const formInputs = event.target.value;
         setContactCompany(formInputs);
-        console.log(event.target.value);
     }
-
     const onChangePhoneNumberHandler = (event: React.ChangeEvent<HTMLInputElement>) =>{
         const formInputs = event.target.value;
         setContactPhoneNumber(formInputs);
-        console.log(event.target.value);
     }
-
     const onChangeUrlHandler = (event: React.ChangeEvent<HTMLInputElement>) =>{
         const formInputs = event.target.value;
         setContactUrl(formInputs);
-        console.log(event.target.value);
     }
-
     const onChangeTextAreaHandler = (event: React.ChangeEvent<HTMLInputElement>) =>{
         const formInputs = event.target.value;
         setContactTextArea(formInputs);
-        console.log(event.target.value);
     }
 
     return (
