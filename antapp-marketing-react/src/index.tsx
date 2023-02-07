@@ -11,6 +11,7 @@ import ResponsiveAppBar from "./commons/navigationBar";
 import Footer from "./commons/footer";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import myTheme from "./commons/myTheme";
+import {RecoilRoot} from "recoil";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -20,21 +21,23 @@ const theme = myTheme;
 
 root.render(
   <React.StrictMode>
-      <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <ResponsiveAppBar />
-          <BrowserRouter>
-              <Routes>
-                  <Route path="/" element={<Home />} />
-                  {/*<Route path="/home" element={<Home />} />*/}
-                  <Route path="/product" element={<Product />} />
-                  <Route path="/productPaper" element={<ProductPaper />} />
-                  <Route path="/contact" element={<Contact />} />
-                    {/*<Route exact path="/form" component={Form} />*/}
-              </Routes>
-          </BrowserRouter>
-          <Footer />
-      </ThemeProvider>
+      <RecoilRoot>
+          <ThemeProvider theme={theme}>
+              <CssBaseline />
+              <ResponsiveAppBar />
+              <BrowserRouter>
+                  <Routes>
+                      <Route path="/" element={<Home />} />
+                      {/*<Route path="/home" element={<Home />} />*/}
+                      <Route path="/product" element={<Product />} />
+                      <Route path="/productPaper" element={<ProductPaper />} />
+                      <Route path="/contact" element={<Contact />} />
+                        {/*<Route exact path="/form" component={Form} />*/}
+                  </Routes>
+              </BrowserRouter>
+              <Footer />
+          </ThemeProvider>
+      </RecoilRoot>
   </React.StrictMode>
 );
 
