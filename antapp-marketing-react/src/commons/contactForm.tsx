@@ -2,7 +2,7 @@ import React from 'react';
 import {ChangeEvent} from "react";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
-import {Container} from "@mui/material";
+import { Container, TextField, Stack } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import { useRecoilState } from 'recoil';
 import {
@@ -13,6 +13,7 @@ import {
         contactUrlState,
         contactTextAreaState
     } from '../atoms/contactFormState';
+import {styled} from "@mui/material/styles";
 
 const ContactForm = () => {
     const [contactName, setContactName] = useRecoilState(contactNameState);
@@ -47,35 +48,40 @@ const ContactForm = () => {
         setContactTextArea(formInputs);
     }
 
+    const Item = styled(Paper)(({ theme }) => ({
+        backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+        ...theme.typography.body2,
+        padding: theme.spacing(1),
+        boxShadow: 'none',
+        textAlign: 'center',
+        color: theme.palette.text.secondary,
+    }));
+
     return (
         <div className="App">
-            名前:<input type="text" value={contactName} onChange={(event: React.ChangeEvent<HTMLInputElement>)=> onChangeNameHandler(event)} />
-                <br/>
-            メールアドレス:<input type="text" value={contactEmail} onChange={(event: React.ChangeEvent<HTMLInputElement>)=> onChangeEmailHandler(event)} />
-            <br/>
-            会社名:<input type="text" value={contactCompany} onChange={(event: React.ChangeEvent<HTMLInputElement>)=> onChangeCompanyHandler(event)} />
-                <br/>
-            電話番号:<input type="text" value={contactPhoneNumber} onChange={(event: React.ChangeEvent<HTMLInputElement>)=> onChangePhoneNumberHandler(event)} />
-            <br/>
-            URL:<input type="text" value={contactUrl} onChange={(event: React.ChangeEvent<HTMLInputElement>)=> onChangeUrlHandler(event)} />
-            <br/>
-            お問合せ内容:<input type="text" value={contactTextArea} onChange={(event: React.ChangeEvent<HTMLInputElement>)=> onChangeTextAreaHandler(event)} />
-            <br/>
+            <Container sx={{
+                paddingLeft: 0,
+                marginLeft: 0
+            }}>
+                <Stack
+                    justifyContent="space-evenly"
+                    alignItems="center"
+                    direction={{xs: 'column', sm: 'column'}}
+                    spacing={{xs: 1, sm: 2, md: 4}}
+                    sx={{
+                        paddingLeft: 0,
+                        marginLeft: 0
+                    }}
+                >
+                        <TextField fullWidth type="text" value={contactName} sx={{paddingLeft: 0, marginLeft: 0, width: '50vw'}} onChange={(event: React.ChangeEvent<HTMLInputElement>) => onChangeNameHandler(event)} label="お名前" variant="standard"/>
+                        <TextField fullWidth type="text" value={contactEmail} sx={{paddingLeft: 0, marginLeft: 0, width: '50vw'}}  onChange={(event: React.ChangeEvent<HTMLInputElement>) => onChangeEmailHandler(event)} label="メールアドレス" variant="standard"/>
+                        <TextField fullWidth type="text" value={contactCompany} sx={{paddingLeft: 0, marginLeft: 0, width: '50vw'}}  onChange={(event: React.ChangeEvent<HTMLInputElement>) => onChangeCompanyHandler(event)} label="お勤め先企業名" variant="standard"/>
+                        <TextField fullWidth type="text" value={contactUrl} sx={{paddingLeft: 0, marginLeft: 0, width: '50vw'}}  onChange={(event: React.ChangeEvent<HTMLInputElement>) => onChangeUrlHandler(event)} label="お勤め先企業URL" variant="standard"/>
+                        <TextField fullWidth type="text" value={contactUrl} sx={{paddingLeft: 0, marginLeft: 0, width: '50vw'}}  onChange={(event: React.ChangeEvent<HTMLInputElement>) => onChangeUrlHandler(event)} label="お電話番号" variant="standard"/>
+                        <TextField fullWidth multiline rows={4} type="text" value={contactTextArea} sx={{paddingLeft: 0, marginLeft: 0, width: '50vw'}}  onChange={(event: React.ChangeEvent<HTMLInputElement>) => onChangeTextAreaHandler(event)} label="お問合せ内容" variant="standard"/>
 
-            <br/>
-            出力
-            <br/>
-                名前: {contactName}
-            <br/>
-            メールアドレス: {contactEmail}
-            <br/>
-                お勤め先企業名: {contactCompany}
-            <br/>
-             お電話番号：{contactPhoneNumber}
-            <br/>
-            お勤め先企業URL: {contactUrl}
-            <br/>
-            お問い合わせ内容: {contactTextArea}
+                </Stack>
+            </Container>
 
             <Container sx={{paddingTop: 10, paddingBottom: 10}}>
                 <span className={'btn-round'}>
