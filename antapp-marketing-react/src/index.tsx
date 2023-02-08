@@ -28,11 +28,9 @@ root.render(
               <BrowserRouter>
                   <Routes>
                       <Route path="/" element={<Home />} />
-                      {/*<Route path="/home" element={<Home />} />*/}
                       <Route path="/product" element={<Product />} />
                       <Route path="/productPaper" element={<ProductPaper />} />
                       <Route path="/contact" element={<Contact />} />
-                        {/*<Route exact path="/form" component={Form} />*/}
                   </Routes>
               </BrowserRouter>
               <Footer />

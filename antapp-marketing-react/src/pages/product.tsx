@@ -39,7 +39,9 @@ const Contact = () => {
             <Container sx={{
                 height: '100vh',
                 paddingLeft: 0,
-                marginLeft: 0
+                marginLeft: 0,
+                paddingRight: 0,
+                marginRight: 0
             }}
             >
                 <Paper sx={{border: 'none',
@@ -47,17 +49,22 @@ const Contact = () => {
                     padding: 0,
                     paddingTop: 50,
                     marginLeft: 0,
+                    marginRight: 0,
                     background: 'none',
                 }}>
                     <Stack
                         justifyContent="space-evenly"
                         alignItems="center"
+                        direction={{ xs: 'row', sm: 'row' }}
+                        spacing={{ xs: 1, sm: 2, md: 0 }}
+                        sx={{padding: 0, margin: 0}}
+                    >
+                    <Stack
+                        justifyContent="space-evenly"
+                        alignItems="center"
                         direction={{ xs: 'column', sm: 'column' }}
                         spacing={{ xs: 1, sm: 2, md: 4 }}
-                        sx={{
-                            paddingLeft: 0,
-                            marginLeft: 0
-                        }}
+                        sx={{padding: 0, margin: 0}}
                     >
                         <Item
                             sx={{
@@ -113,6 +120,10 @@ const Contact = () => {
                                 </span>
                             </Item>
                         </Item>
+                    </Stack>
+                    <Item sx={{paddingLeft: 0, marginLeft: 0}}>
+                        <img src="https://antapp-marketing.com/wp-content/themes/Antapp2023/assets/images/feature-top.svg" />
+                    </Item>
                     </Stack>
                 </Paper>
             </Container>
@@ -173,6 +184,7 @@ const Contact = () => {
                                 textDecoration: 'none',
                             }}
                         >
+                            {/*<img className="display-middle" src="https://antapp-marketing.com/wp-content/themes/Antapp2023/assets/images/feature-top-down-arrow.svg"/>*/}
                         Antappが全て解決いたします！
                         </Typography>
                     </Paper>
@@ -212,25 +224,32 @@ const Contact = () => {
                     }}
                 >マーケ担当が行う業務・ミッションを<br/>私たちが全て支援いたします</Typography>
                 <Paper sx={{border: 'none', boxShadow: 'none', padding: 4, marginY: 2}}>
-                    <Typography
-                        variant="body1"
-                        justifyContent="center"
-                        fontSize={30}
-                        // noWrap
-                        sx={{
-                            mr: 2,
-                            display: { xs: 'flex', md: 'flex' },
-                            fontFamily: 'Hiragino Kaku Gothic ProN',
-                            fontWeight: 100,
-                            fontSize: '1rem',
-                            lineHeight: '3rem',
-                            // letterSpacing: '0.5rem',
-                            color: 'black',
-                            textDecoration: 'none',
-                        }}
-                    >
-                        お客様の業種・業界・ ビジネスフロー・経営計画に合わせて最適なマーケティング戦略をご提供いたします。
-                    </Typography>
+                    <Stack>
+                        <Item>
+                            <Typography
+                                variant="body1"
+                                justifyContent="center"
+                                fontSize={30}
+                                // noWrap
+                                sx={{
+                                    mr: 2,
+                                    display: {xs: 'flex', md: 'flex'},
+                                    fontFamily: 'Hiragino Kaku Gothic ProN',
+                                    fontWeight: 100,
+                                    fontSize: '1rem',
+                                    lineHeight: '3rem',
+                                    // letterSpacing: '0.5rem',
+                                    color: 'black',
+                                    textDecoration: 'none',
+                                }}
+                            >
+                                お客様の業種・業界・ ビジネスフロー・経営計画に合わせて最適なマーケティング戦略をご提供いたします。
+                            </Typography>
+                        </Item>
+                        <Item sx={{width: '50vw', margin: 'auto'}}>
+                            <img src="https://antapp-marketing.com/wp-content/themes/Antapp2023/assets/images/feature-service2.svg"/>
+                        </Item>
+                    </Stack>
                 </Paper>
             </Container>
             <Container className="paperPreview" sx={{paddingTop: 10}}>
@@ -250,25 +269,32 @@ const Contact = () => {
                     }}
                 >マーケティング戦略からWeb制作までワンストップで対応</Typography>
                 <Paper sx={{border: 'none', boxShadow: 'none', padding: 4, marginY: 2}}>
-                    <Typography
-                        variant="body1"
-                        justifyContent="center"
-                        fontSize={30}
-                        // noWrap
-                        sx={{
-                            mr: 2,
-                            display: { xs: 'flex', md: 'flex' },
-                            fontFamily: 'Hiragino Kaku Gothic ProN',
-                            fontWeight: 100,
-                            fontSize: '1rem',
-                            lineHeight: '3rem',
-                            // letterSpacing: '0.5rem',
-                            color: 'black',
-                            textDecoration: 'none',
-                        }}
-                    >
-                        戦略的な視点から効果の出るクリエイティブを制作します。
-                    </Typography>
+                    <Stack>
+                        <Item sx={{width: '50vw', margin: 'auto'}}>
+                            <img  src="https://antapp-marketing.com/wp-content/themes/Antapp2023/assets/images/feature-service3.svg"/>
+                        </Item>
+                        <Item>
+                            <Typography
+                                variant="body1"
+                                justifyContent="center"
+                                fontSize={30}
+                                // noWrap
+                                sx={{
+                                    mr: 2,
+                                    display: {xs: 'flex', md: 'flex'},
+                                    fontFamily: 'Hiragino Kaku Gothic ProN',
+                                    fontWeight: 100,
+                                    fontSize: '1rem',
+                                    lineHeight: '3rem',
+                                    // letterSpacing: '0.5rem',
+                                    color: 'black',
+                                    textDecoration: 'none',
+                                }}
+                            >
+                                戦略的な視点から効果の出るクリエイティブを制作します。
+                            </Typography>
+                        </Item>
+                    </Stack>
                 </Paper>
                 <Stack
                     justifyContent="center"
@@ -305,25 +331,33 @@ const Contact = () => {
                     }}
                 >支援体制</Typography>
                 <Paper sx={{border: 'none', boxShadow: 'none', padding: 4, marginY: 2}}>
-                    <Typography
-                        variant="body1"
-                        justifyContent="center"
-                        fontSize={30}
-                        // noWrap
-                        sx={{
-                            mr: 2,
-                            display: { xs: 'flex', md: 'flex' },
-                            fontFamily: 'Hiragino Kaku Gothic ProN',
-                            fontWeight: 100,
-                            fontSize: '1rem',
-                            lineHeight: '3rem',
-                            // letterSpacing: '0.5rem',
-                            color: 'black',
-                            textDecoration: 'none',
-                        }}
-                    >
-                        マーケティング戦略の立案・ディレクション業務を担当します。取引先の選定、コミュニケーション、施策実施をお客様と一体となりサポートします。
-                    </Typography>
+                    <Stack>
+                        <Item>
+                            <Typography
+                                variant="body1"
+                                justifyContent="center"
+                                fontSize={30}
+                                // noWrap
+                                sx={{
+                                    mr: 2,
+                                    display: {xs: 'flex', md: 'flex'},
+                                    fontFamily: 'Hiragino Kaku Gothic ProN',
+                                    fontWeight: 100,
+                                    fontSize: '1rem',
+                                    lineHeight: '3rem',
+                                    // letterSpacing: '0.5rem',
+                                    color: 'black',
+                                    textDecoration: 'none',
+                                }}
+                            >
+                                マーケティング戦略の立案・ディレクション業務を担当します。取引先の選定、コミュニケーション、施策実施をお客様と一体となりサポートします。
+                            </Typography>
+                        </Item>
+                        <Item sx={{width: '50vw', margin: 'auto'}}>
+                            <img
+                                src="https://antapp-marketing.com/wp-content/themes/Antapp2023/assets/images/feature-suport.svg"/>
+                        </Item>
+                    </Stack>
                 </Paper>
             </Container>
             <Container className="paperPreview" sx={{paddingTop: 10}}>

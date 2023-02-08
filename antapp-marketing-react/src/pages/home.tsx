@@ -119,40 +119,46 @@ const Home = () => {
                             textDecoration: 'none',
                         }}
                     >Antappとは</Typography>
-                    <Box sx={{border: 'black', padding: 4, marginY: 2 }}>
-                        <Paper className={'about'} sx={{ boxShadow: 'none', padding: 4, marginY: 2 }}>
-                            <Typography
-                                variant="body1"
-                                justifyContent="center"
-                                fontSize={30}
-                                // noWrap
-                                sx={{
-                                    mr: 2,
-                                    display: { xs: 'flex', md: 'flex' },
-                                    fontFamily: 'Hiragino Kaku Gothic ProN',
-                                    fontWeight: 100,
-                                    fontSize: '1rem',
-                                    lineHeight: '3rem',
-                                    // letterSpacing: '0.5rem',
-                                    color: 'black',
-                                    textDecoration: 'none',
-                                }}
-                            >
-                                私たちは企業の経営課題をマーケティングで解決するフリーランス集団です。<br/>
-                                「自社にマーケティング機能が無い。」<br/>
-                                「売上が伸び悩んでいる。」<br/>
-                                「更なる成長を目指したい。」<br/>
-                                このような思いを抱える企業をマーケティングの力でご支援いたします。<br/>
-                                マーケティング領域における専門性に加え、フリーランスならではの<br/>
-                                柔軟性と経済性で圧倒的なパフォーマンスを提供します。<br/>
-                            </Typography>
-                            <Item sx={{paddingTop: 5}}>
+                    <Box sx={{ padding: 4, marginY: 2 }}>
+                        <Paper className={'about'} sx={{ boxShadow: 'none', padding: 4, marginY: 2, border: 'none'}}>
+                            <Stack border={'solid'} borderColor={'black'}>
+                                <Item>
+                                    <Typography
+                                        variant="body1"
+                                        justifyContent="center"
+                                        fontSize={30}
+                                        // noWrap
+                                        sx={{
+                                            borderRadius: 1,
+                                            paddingTop: 5,
+                                            mr: 2,
+                                            display: { xs: 'flex', md: 'flex'},
+                                            fontFamily: 'Hiragino Kaku Gothic ProN',
+                                            fontWeight: 100,
+                                            fontSize: '1rem',
+                                            lineHeight: '3rem',
+                                            // letterSpacing: '0.5rem',
+                                            color: 'black',
+                                            textDecoration: 'none',
+                                        }}
+                                    >
+                                        私たちは企業の経営課題をマーケティングで解決するフリーランス集団です。<br/>
+                                        「自社にマーケティング機能が無い。」<br/>
+                                        「売上が伸び悩んでいる。」<br/>
+                                        「更なる成長を目指したい。」<br/>
+                                        このような思いを抱える企業をマーケティングの力でご支援いたします。<br/>
+                                        マーケティング領域における専門性に加え、フリーランスならではの<br/>
+                                        柔軟性と経済性で圧倒的なパフォーマンスを提供します。<br/>
+                                    </Typography>
+                                </Item>
+                            <Item>
                                 <p className={'seemore'}>
                                     <span>
                                         <a className={"btnarrow4"} href="./product">SeeMore</a>
                                     </span>
                                 </p>
                             </Item>
+                            </Stack>
                         </Paper>
                     </Box>
                 </Paper>
