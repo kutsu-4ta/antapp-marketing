@@ -50,7 +50,6 @@ export const EmblaCarousel = () => {
                     <div className="embla__slide" key={productDocuments.name}>
                         <Grid
                             item xs={4}
-                            spacing={{ xs: 1, sm: 2, md: 4 }}
                             sx={{
                                 marginTop: 0,
                                 marginBottom: 0

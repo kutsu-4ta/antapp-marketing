@@ -113,6 +113,7 @@ body {
   --yellow: #ffbb00;
 }
 
+// プライバシースクリーン-------------------------------------->>
 .privacy-screen {
   position: fixed;
   top: 0;
@@ -122,3 +123,62 @@ body {
   background-color: var(--grey);
   z-index: 2;
 }
+// <<------------------------------------プライバシースクリーン
+
+button {
+  bottom: 0;
+  outline: none;
+  border: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  cursor: pointer;
+  position: absolute;
+  top: 18px;
+  left: 15px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: transparent;
+}
+
+// モバイルナビゲーション------------------------------------------->>
+.mobile-navigation .background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  background: #fff;
+}
+.mobile-navigation ul, li {
+  margin: 0;
+  padding: 0;
+}
+.mobile-navigation ul {
+  padding: 25px;
+  position: absolute;
+  top: 3.5rem; // ナビゲーションバーの高さと揃える
+  width: 230px;
+}
+.mobile-navigation li {
+  list-style: none;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.mobile-navigation .icon-placeholder {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex: 40px 0;
+  margin-right: 20px;
+}
+.mobile-navigation .text-placeholder {
+  border-radius: 5px;
+  width: 200px;
+  height: 20px;
+  flex: 1;
+}
+// <<-------------------------------------------モバイルナビゲーション

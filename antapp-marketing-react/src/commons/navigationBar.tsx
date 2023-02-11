@@ -15,8 +15,14 @@ import MenuItem from '@mui/material/MenuItem';
 import "./navigationBar.css";
 import {Link} from "react-router-dom";
 import {motion, useIsPresent} from "framer-motion";
+import {MobileNavigation} from "../components/mobile/navigation/mobileNavigation";
 
-const menuContent = [
+export type menuItemType = {
+    name: string,
+    path: string
+};
+
+const menuItems: menuItemType[] = [
     {
         'name': 'ホーム',
         'path' : '/'
@@ -84,50 +90,7 @@ function ResponsiveAppBar() {
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-                        <IconButton
-                            size="large"
-                            aria-label="account of current user"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            onClick={handleOpenNavMenu}
-                            color="inherit"
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        <Menu
-                            id="menu-appbar"
-                            anchorEl={anchorElNav}
-                            anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'left',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
-                            }}
-                            open={Boolean(anchorElNav)}
-                            onClose={handleCloseNavMenu}
-                            sx={{
-                                display: { xs: 'block', md: 'none' },
-                            }}
-                        >
-                            {menuContent.map((menuContent) => (
-                                <MenuItem key={menuContent.name} onClick={handleCloseNavMenu}>
-                                    {/*<Typography textAlign="center">{menuContent.name}</Typography>*/}
-                                    <Link to={menuContent.path}>
-                                        {menuContent.name}
-                                    </Link>
-                                    <motion.div
-                                        initial={{ scaleX: 1 }}
-                                        animate={{ scaleX: 0, transition: { duration: 0.5, ease: "circOut" } }}
-                                        exit={{ scaleX: 1, transition: { duration: 0.5, ease: "circIn" } }}
-                                        style={{ originX: isPresent ? 0 : 1 }}
-                                        className="privacy-screen"
-                                    />
-                                </MenuItem>
-                            ))}
-                        </Menu>
+                        <MobileNavigation menuItems={menuItems} />
                     </Box>
                     {/*<AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />*/}
                     <Typography
@@ -149,7 +112,7 @@ function ResponsiveAppBar() {
                         Antapp
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'end'}}>
-                        {menuContent.map((menuContent) => (
+                        {menuItems.map((menuContent) => (
                             <Button
                                 key={menuContent.name}
                                 // onClick={handleCloseNavMenu}
