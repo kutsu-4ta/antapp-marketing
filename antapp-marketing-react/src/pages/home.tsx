@@ -7,8 +7,10 @@ import {styled} from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import {Container, Stack} from "@mui/material";
 import {EmblaCarousel} from "../commons/carousel";
-import "./home.css";
 import ContactForm from "../commons/contactForm";
+import { motion } from "framer-motion"
+import "./home.css";
+import "../styles/style.scss";
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -35,70 +37,77 @@ const Home = () => {
                 <Paper sx={{border: 'none', boxShadow: 'none', padding: 0, paddingTop: 50, paddingLeft: 0,
                     marginLeft: 0, background: 'none',
                 }}>
-                    <Stack
-                        justifyContent="space-evenly"
-                        alignItems="center"
-                        direction={{ xs: 'column', sm: 'column' }}
-                        spacing={{ xs: 1, sm: 2, md: 4 }}
-                        sx={{
-                            paddingLeft: 0,
-                            marginLeft: 0
-                        }}
+                    <motion.div
+                        initial={{opacity: 0}}
+                        animate={{opacity: 1, y: [50, 0]}}
+                        transition={{duration: 2.0, ease: "easeOut"}}
                     >
-                        <Item
+                        <Stack
+                            justifyContent="space-evenly"
+                            alignItems="center"
+                            direction={{ xs: 'column', sm: 'column' }}
+                            spacing={{ xs: 1, sm: 2, md: 4 }}
                             sx={{
                                 paddingLeft: 0,
                                 marginLeft: 0
                             }}
                         >
-                            <Typography
-                                variant="h1"
-                                justifyContent="center"
-                                fontSize={30}
+                            <Item
                                 sx={{
-                                    mr: 2,
-                                    display: {xs: 'flex', md: 'flex'},
-                                    fontFamily: 'serif',
-                                    fontWeight: 300,
-                                    letterSpacing: '.3rem',
-                                    color: 'black',
-                                    textDecoration: 'none',
-                                    boxShadow: 0,
                                     paddingLeft: 0,
                                     marginLeft: 0
                                 }}
                             >
-                                中小企業のマーケティングを支援する
-                            </Typography>
-                        </Item>
-                        <Item className={'title-item'}>
-                            <Typography
-                                variant="subtitle1"
-                                // noWrap
-                                component="a"
-                                href="/"
-                                sx={{
-                                    mr: 2,
-                                    justifyContent: 'center',
-                                    display: { xs: 'flex', md: 'flex' },
-                                    fontFamily: 'Hiragino Kaku Gothic ProN',
-                                    fontWeight: 100,
-                                    letterSpacing: '.3rem',
-                                    color: 'black',
-                                    textDecoration: 'none',
-                                }}
-                            >
-                                戦略立案・施策運用・Web制作など一貫したサポート
-                            </Typography>
-                            <Item sx={{paddingTop: 5}}>
-                                <span className={'btn-round'}>
-                                    <a href="./contact">
-                                        無料相談はこちら
-                                    </a>
-                                </span>
+                                <Typography
+                                    variant="h1"
+                                    justifyContent="center"
+                                    fontSize={30}
+                                    sx={{
+                                        mr: 2,
+                                        display: {xs: 'flex', md: 'flex'},
+                                        fontFamily: 'serif',
+                                        fontWeight: 300,
+                                        letterSpacing: '.3rem',
+                                        color: 'black',
+                                        textDecoration: 'none',
+                                        boxShadow: 0,
+                                        paddingLeft: 0,
+                                        marginLeft: 0
+                                    }}
+                                >
+
+                                        中小企業のマーケティングを支援する
+                                </Typography>
                             </Item>
-                        </Item>
-                    </Stack>
+                            <Item className={'title-item'}>
+                                <Typography
+                                    variant="subtitle1"
+                                    // noWrap
+                                    component="a"
+                                    href="/"
+                                    sx={{
+                                        mr: 2,
+                                        justifyContent: 'center',
+                                        display: { xs: 'flex', md: 'flex' },
+                                        fontFamily: 'Hiragino Kaku Gothic ProN',
+                                        fontWeight: 100,
+                                        letterSpacing: '.3rem',
+                                        color: 'black',
+                                        textDecoration: 'none',
+                                    }}
+                                >
+                                    戦略立案・施策運用・Web制作など一貫したサポート
+                                </Typography>
+                                <Item sx={{paddingTop: 5}}>
+                                    <span className={'btn-round'}>
+                                        <a href="./contact">
+                                            無料相談はこちら
+                                        </a>
+                                    </span>
+                                </Item>
+                            </Item>
+                        </Stack>
+                    </motion.div>
                 </Paper>
             </Container>
             {/* Antappとは */}
