@@ -10,6 +10,8 @@ import Typography from "@mui/material/Typography";
 // import "./product.css";
 import {styled} from "@mui/material/styles";
 import ContactForm from "../commons/contactForm";
+import {motion, useIsPresent} from "framer-motion";
+import ResponsiveAppBar from "../commons/navigationBar";
 // import Button from "@mui/material/Button";
 
 // const Item = styled(Paper)(({ theme }) => ({
@@ -50,6 +52,7 @@ const productDocuments = [
 ];
 
 const ProductPaper = () => {
+    const isPresent = useIsPresent();
     return (
         <div className="App">
             <HeaderBlock
@@ -57,6 +60,7 @@ const ProductPaper = () => {
                 path={'資料のURL'}
                 description={'資料の説明'}
             />
+            <ResponsiveAppBar />
             <Container sx={{paddingTop: 10, paddingRight: 'inherit', paddingLeft: 'inherit'}}>
                 <Paper sx={{
                     border: 'none',
@@ -109,6 +113,13 @@ const ProductPaper = () => {
             <Container sx={{paddingTop: 10, paddingBottom: 10}}>
                 <ContactForm/>
             </Container>
+            <motion.div
+                initial={{ scaleX: 1 }}
+                animate={{ scaleX: 0, transition: { duration: 0.5, ease: "circOut" } }}
+                exit={{ scaleX: 1, transition: { duration: 0.5, ease: "circIn" } }}
+                style={{ originX: isPresent ? 0 : 1 }}
+                className="privacy-screen"
+            />
         </div>
     );
 };

@@ -9,31 +9,35 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import Avatar from '@mui/material/Avatar';
-import Tooltip from '@mui/material/Tooltip';
-import AdbIcon from '@mui/icons-material/Adb';
+// import Avatar from '@mui/material/Avatar';
+// import Tooltip from '@mui/material/Tooltip';
+// import AdbIcon from '@mui/icons-material/Adb';
 import "./navigationBar.css";
+import {Link} from "react-router-dom";
+import {motion, useIsPresent} from "framer-motion";
 
 const menuContent = [
     {
         'name': 'ホーム',
-        'url' : '/'
+        'path' : '/'
     },
     {
         'name': '特徴',
-        'url' : './product'
+        'path' : '/product'
     },
     {   'name': '資料',
-        'url' : './productPaper'
+        'path' : '/productPaper'
     },
     {   'name': 'お問合わせ',
-        'url' : './contact'
+        'path' : '/contact'
     }
 ];
 
 // const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
+    const isPresent = useIsPresent();    // 切り替えスクリーンで使用
+
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
     const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
@@ -111,10 +115,16 @@ function ResponsiveAppBar() {
                             {menuContent.map((menuContent) => (
                                 <MenuItem key={menuContent.name} onClick={handleCloseNavMenu}>
                                     {/*<Typography textAlign="center">{menuContent.name}</Typography>*/}
-                                    {/* とりあえずaタグのリンク */}
-                                    <a href={menuContent.url} style={{textDecoration: 'none', color: 'black'}}>
+                                    <Link to={menuContent.path}>
                                         {menuContent.name}
-                                    </a>
+                                    </Link>
+                                    <motion.div
+                                        initial={{ scaleX: 1 }}
+                                        animate={{ scaleX: 0, transition: { duration: 0.5, ease: "circOut" } }}
+                                        exit={{ scaleX: 1, transition: { duration: 0.5, ease: "circIn" } }}
+                                        style={{ originX: isPresent ? 0 : 1 }}
+                                        className="privacy-screen"
+                                    />
                                 </MenuItem>
                             ))}
                         </Menu>
@@ -145,10 +155,16 @@ function ResponsiveAppBar() {
                                 // onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
-                                {/* とりあえずaタグのリンク */}
-                                <a href={menuContent.url} style={{textDecoration: 'none', color: 'black'}}>
+                                <Link to={menuContent.path}>
                                     {menuContent.name}
-                                </a>
+                                </Link>
+                                <motion.div
+                                    initial={{ scaleX: 1 }}
+                                    animate={{ scaleX: 0, transition: { duration: 0.5, ease: "circOut" } }}
+                                    exit={{ scaleX: 1, transition: { duration: 0.5, ease: "circIn" } }}
+                                    style={{ originX: isPresent ? 0 : 1 }}
+                                    className="privacy-screen"
+                                />
                             </Button>
                         ))}
                     </Box>

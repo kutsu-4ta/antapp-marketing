@@ -6,11 +6,15 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import {Container} from "@mui/material";
+import {motion, useIsPresent} from "framer-motion";
+import ResponsiveAppBar from "../commons/navigationBar";
 
 const Contact = () => {
+    const isPresent = useIsPresent();
     return (
         <div className="App">
             <HeaderBlock title={'お問合せ'} path={'お問合せのURL'} description={'お問合せの説明'} />
+            <ResponsiveAppBar />
             <Container sx={{paddingTop: 10, paddingRight: 'inherit', paddingLeft: 'inherit'}}>
                 <Paper sx={{border: 'none', boxShadow: 'none', padding: 4, marginY: 2}}>
                     <Typography
@@ -33,6 +37,13 @@ const Contact = () => {
                 </Paper>
             </Container>
             <ContactForm/>
+            <motion.div
+                initial={{ scaleX: 1 }}
+                animate={{ scaleX: 0, transition: { duration: 0.5, ease: "circOut" } }}
+                exit={{ scaleX: 1, transition: { duration: 0.5, ease: "circIn" } }}
+                style={{ originX: isPresent ? 0 : 1 }}
+                className="privacy-screen"
+            />
         </div>
     );
 };

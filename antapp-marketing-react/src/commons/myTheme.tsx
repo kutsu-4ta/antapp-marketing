@@ -1,5 +1,5 @@
 import {createTheme} from "@mui/material";
-import '../App.css';
+import '../styles/style.scss';
 
 const theme = createTheme({
     palette: {

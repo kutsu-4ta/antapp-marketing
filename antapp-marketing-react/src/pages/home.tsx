@@ -1,14 +1,15 @@
-import React from 'react';
-import Typography from '@mui/material/Typography';
+import { motion, useIsPresent } from "framer-motion";
+import { Link } from "react-router-dom";
 import HeaderBlock from "../components/headerBlock";
-import Grid from "@mui/material/Grid";
+import ResponsiveAppBar from "../commons/navigationBar";
+import Typography from '@mui/material/Typography';
 import Box from "@mui/material/Box";
 import {styled} from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import {Container, Stack} from "@mui/material";
 import {EmblaCarousel} from "../commons/carousel";
 import ContactForm from "../commons/contactForm";
-import { motion } from "framer-motion"
+import MyButton from "../commons/myBottun";
 import "./home.css";
 import "../styles/style.scss";
 
@@ -21,20 +22,32 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
 }));
 
-const Home = () => {
+export function Home() {
+    const isPresent = useIsPresent();
     return (
-        <div className="App">
+        <div>
             <HeaderBlock
-                title={'Antapp.incマーケティング支援'}
+                title={'Antapp.incマーケティング支援ホーム'}
                 path={'ホームのURL'}
                 description={'ビジネスのマーケティングを支援'}
             />
-            <Container sx={{height: '100vh',
+            <ResponsiveAppBar />
+            <motion.div
+                initial={{ scaleX: 1 }}
+                animate={{ scaleX: 0, transition: { duration: 0.5, ease: "circOut" } }}
+                exit={{ scaleX: 1, transition: { duration: 0.5, ease: "circIn" } }}
+                style={{ originX: isPresent ? 0 : 1 }}
+                className="privacy-screen"
+            />
+
+            <Container sx={{
+                height: '100vh',
                 paddingLeft: 0,
                 marginLeft: 0
             }}
             >
-                <Paper sx={{border: 'none', boxShadow: 'none', padding: 0, paddingTop: 50, paddingLeft: 0,
+                <Paper sx={{
+                    border: 'none', boxShadow: 'none', padding: 0, paddingTop: 50, paddingLeft: 0,
                     marginLeft: 0, background: 'none',
                 }}>
                     <motion.div
@@ -45,8 +58,8 @@ const Home = () => {
                         <Stack
                             justifyContent="space-evenly"
                             alignItems="center"
-                            direction={{ xs: 'column', sm: 'column' }}
-                            spacing={{ xs: 1, sm: 2, md: 4 }}
+                            direction={{xs: 'column', sm: 'column'}}
+                            spacing={{xs: 1, sm: 2, md: 4}}
                             sx={{
                                 paddingLeft: 0,
                                 marginLeft: 0
@@ -75,8 +88,7 @@ const Home = () => {
                                         marginLeft: 0
                                     }}
                                 >
-
-                                        中小企業のマーケティングを支援する
+                                    中小企業のマーケティングを支援する
                                 </Typography>
                             </Item>
                             <Item className={'title-item'}>
@@ -88,7 +100,7 @@ const Home = () => {
                                     sx={{
                                         mr: 2,
                                         justifyContent: 'center',
-                                        display: { xs: 'flex', md: 'flex' },
+                                        display: {xs: 'flex', md: 'flex'},
                                         fontFamily: 'Hiragino Kaku Gothic ProN',
                                         fontWeight: 100,
                                         letterSpacing: '.3rem',
@@ -99,11 +111,7 @@ const Home = () => {
                                     戦略立案・施策運用・Web制作など一貫したサポート
                                 </Typography>
                                 <Item sx={{paddingTop: 5}}>
-                                    <span className={'btn-round'}>
-                                        <a href="./contact">
-                                            無料相談はこちら
-                                        </a>
-                                    </span>
+                                    <MyButton text={'無料相談はこちら'} path={'/contact'} className={'btn-round'}/>
                                 </Item>
                             </Item>
                         </Stack>
@@ -112,7 +120,7 @@ const Home = () => {
             </Container>
             {/* Antappとは */}
             <Container sx={{paddingTop: 10, paddingRight: 'inherit', paddingLeft: 'inherit'}}>
-                <Paper sx={{border: 'none', boxShadow: 'none', padding: 4, marginY: 2 }}>
+                <Paper sx={{border: 'none', boxShadow: 'none', padding: 4, marginY: 2}}>
                     <Typography
                         variant="h2"
                         justifyContent="center"
@@ -120,7 +128,7 @@ const Home = () => {
                         noWrap
                         sx={{
                             mr: 2,
-                            display: { xs: 'flex', md: 'flex' },
+                            display: {xs: 'flex', md: 'flex'},
                             fontFamily: 'Hiragino Kaku Gothic ProN',
                             fontWeight: 400,
                             letterSpacing: '.3rem',
@@ -128,8 +136,8 @@ const Home = () => {
                             textDecoration: 'none',
                         }}
                     >Antappとは</Typography>
-                    <Box sx={{ padding: 4, marginY: 2 }}>
-                        <Paper className={'about'} sx={{ boxShadow: 'none', padding: 4, marginY: 2, border: 'none'}}>
+                    <Box sx={{padding: 4, marginY: 2}}>
+                        <Paper className={'about'} sx={{boxShadow: 'none', padding: 4, marginY: 2, border: 'none'}}>
                             <Stack border={'solid'} borderColor={'black'}>
                                 <Item>
                                     <Typography
@@ -141,7 +149,7 @@ const Home = () => {
                                             borderRadius: 1,
                                             paddingTop: 5,
                                             mr: 2,
-                                            display: { xs: 'flex', md: 'flex'},
+                                            display: {xs: 'flex', md: 'flex'},
                                             fontFamily: 'Hiragino Kaku Gothic ProN',
                                             fontWeight: 100,
                                             fontSize: '1rem',
@@ -160,13 +168,15 @@ const Home = () => {
                                         柔軟性と経済性で圧倒的なパフォーマンスを提供します。<br/>
                                     </Typography>
                                 </Item>
-                            <Item>
-                                <p className={'seemore'}>
+                                <Item>
+                                    <p className={'seemore'}>
                                     <span>
-                                        <a className={"btnarrow4"} href="./product">SeeMore</a>
+                                        <Link className={"btnarrow4"} to={'/product'}>
+                                            SeeMore
+                                        </Link>
                                     </span>
-                                </p>
-                            </Item>
+                                    </p>
+                                </Item>
                             </Stack>
                         </Paper>
                     </Box>
@@ -175,12 +185,8 @@ const Home = () => {
 
             <Container className="paperPreview" sx={{paddingTop: 10}}>
                 <Paper sx={{border: 'none', boxShadow: 'none', padding: 4, marginY: 2, backgroundColor: 'black'}}>
-                    <span className={'btn-round'}>
-                        <a href="./productPaper">
-                            無料相談はこちら
-                        </a>
-                    </span>
-                    <Box sx={{border: 'black', padding: 4, marginY: 2, backgroundColor: 'none' }}>
+                    <MyButton text={'無料相談はこちら'} path={'/productPaper'} className={'btn-round'}/>
+                    <Box sx={{border: 'black', padding: 4, marginY: 2, backgroundColor: 'none'}}>
                         <EmblaCarousel/>
                     </Box>
                 </Paper>
@@ -191,6 +197,4 @@ const Home = () => {
             </Container>
         </div>
     );
-};
-
-export default Home;
+}

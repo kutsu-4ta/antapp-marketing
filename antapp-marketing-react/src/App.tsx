@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// All photos by Matt Perry https://citizenofnowhe.re
+import './styles/style.scss';
+import * as React from "react";
+import { AnimatePresence } from "framer-motion";
+import { useLocation, useRoutes } from "react-router-dom";
+import { Home } from "./pages/home";
+import Product from "./pages/product";
+import ProductPaper from "./pages/productPaper";
+import Contact from "./pages/contact";
 
-function App() {
+export default function App() {
+  const element = useRoutes([
+    {
+      path: "/",
+      element: <Home/>
+    },
+    {
+      path: "/product",
+      element: (
+          <Product />
+      )
+    },
+    {
+      path: "/productPaper",
+      element: (
+          <ProductPaper/>
+      )
+    },
+    {
+      path: "/contact",
+      element: (
+          <Contact/>
+      )
+    }
+  ]);
+
+  const location = useLocation();
+
+  if (!element) return null;
+
   return (
-    <div className="App">
-      {/*<header className="App-header">*/}
-      {/*  <img src={logo} className="App-logo" alt="logo" />*/}
-      {/*  <p>*/}
-      {/*    Edit <code>src/App.tsx</code> and save to reload.*/}
-      {/*  </p>*/}
-      {/*  <a*/}
-      {/*    className="App-link"*/}
-      {/*    href="https://reactjs.org"*/}
-      {/*    target="_blank"*/}
-      {/*    rel="noopener noreferrer"*/}
-      {/*  >*/}
-      {/*    Learn React*/}
-      {/*  </a>*/}
-      {/*</header>*/}
-    </div>
+      <AnimatePresence mode="wait" initial={false}>
+        {React.cloneElement(element, { key: location.pathname })}
+      </AnimatePresence>
   );
 }
-
-export default App;

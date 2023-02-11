@@ -7,4 +7,118 @@
   font-weight: 700;
   font-size: 3rem;
   color: #333;
+  text-align: center;
+  padding: 0;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide {
+  text-align: -webkit-center;
+  flex: 0 0 100%;
+}
+
+carousel-content {
+  background-color: white;
+}
+
+.content-tile {
+  width: 14rem;
+  padding: 2rem !important;
+}
+
+.border-none {
+  border: none;
+  box-shadow: none !important;
+}
+
+/* 丸ボタン */
+.btn-round a {
+  width: fit-content;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 15rem;
+  padding: 0.6rem 1.5rem;
+  color: #000000;
+  /*transition: 0.1s ease-in-out;*/
+  /*font-weight: 600;*/
+  background: #fdf134;
+  border: solid #0c0c0c;
+  border-width: 1px;
+  border-radius: 4rem;
+  text-decoration: none;
+  /*border-bottom: solid 0.1rem #00396c;*/
+}
+.btn-round a:hover {
+  background: #cec429;
+  color: #000000;
+  /*border-bottom: solid 0rem #00396c;*/
+  /*transform: translateY(0.2rem);*/
+  text-decoration: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+
+body {
+  --black: #000000;
+  --ash-black: #222;
+  --grey: #b9b9b9;
+  --white: #fafafa;
+  --sky: #00ccff;
+  --green: #299a5d;
+  --blue: #1300ff;
+  --dusk: #6600ff;
+  --purple: #9900ff;
+  --pink: #ff0066;
+  --red: #fe0222;
+  --orange: #fd7702;
+  --yellow: #ffbb00;
+}
+
+.privacy-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--grey);
+  z-index: 2;
 }

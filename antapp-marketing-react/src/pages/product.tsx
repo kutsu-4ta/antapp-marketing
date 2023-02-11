@@ -1,15 +1,15 @@
 import React from 'react';
-import logo from "../logo.svg";
+// import logo from "../logo.svg";
 import HeaderBlock from "../components/headerBlock";
 import {Container, Stack, Divider} from "@mui/material";
 import Paper from "@mui/material/Paper";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import {EmblaCarousel} from "../commons/carousel";
-// import "./product.css";
 import {styled} from "@mui/material/styles";
 import ContactForm from "../commons/contactForm";
+import {useIsPresent, motion} from "framer-motion";
+import ResponsiveAppBar from "../commons/navigationBar";
+import MyButton from "../commons/myBottun";
+import {Image} from "../commons/Image";
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -28,7 +28,8 @@ const TileItem = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
 }));
 
-const Contact = () => {
+const Product = () => {
+    const isPresent = useIsPresent();
     return (
         <div className="App">
             <HeaderBlock
@@ -36,6 +37,7 @@ const Contact = () => {
                 path={'特徴のURL'}
                 description={'Antappのビジネスのマーケティングを支援の特徴'}
             />
+            <ResponsiveAppBar />
             <Container sx={{
                 height: '100vh',
                 paddingLeft: 0,
@@ -122,7 +124,7 @@ const Contact = () => {
                         </Item>
                     </Stack>
                     <Item sx={{paddingLeft: 0, marginLeft: 0}}>
-                        <img src="https://antapp-marketing.com/wp-content/themes/Antapp2023/assets/images/feature-top.svg" />
+                        <Image  path={'https://antapp-marketing.com/wp-content/themes/Antapp2023/assets/images/feature-top.svg'} alt={'alt'} aspectRatio={"3/2"}/>
                     </Item>
                     </Stack>
                 </Paper>
@@ -184,7 +186,6 @@ const Contact = () => {
                                 textDecoration: 'none',
                             }}
                         >
-                            {/*<img className="display-middle" src="https://antapp-marketing.com/wp-content/themes/Antapp2023/assets/images/feature-top-down-arrow.svg"/>*/}
                         Antappが全て解決いたします！
                         </Typography>
                     </Paper>
@@ -195,14 +196,10 @@ const Contact = () => {
                         spacing={{ xs: 1, sm: 2, md: 4 }}
                     >
                         <Item>
-                            <span className={'btn-round'}>
-                                <a href="./productPaper">資料請求</a>
-                            </span>
+                            <MyButton text={'資料請求'} path={'/productPaper'} className={'btn-round'}/>
                         </Item>
                         <Item>
-                            <span className={'btn-round'}>
-                                <a href="./contact">無料相談はこちら</a>
-                            </span>
+                            <MyButton text={'無料相談はこちら'} path={'/contact'} className={'btn-round'}/>
                         </Item>
                     </Stack>
                 </Paper>
@@ -247,7 +244,7 @@ const Contact = () => {
                             </Typography>
                         </Item>
                         <Item sx={{width: '50vw', margin: 'auto'}}>
-                            <img src="https://antapp-marketing.com/wp-content/themes/Antapp2023/assets/images/feature-service2.svg"/>
+                            <Image  path={'https://antapp-marketing.com/wp-content/themes/Antapp2023/assets/images/feature-service2.svg'} alt={'alt'} aspectRatio={"3/2"}/>
                         </Item>
                     </Stack>
                 </Paper>
@@ -271,7 +268,8 @@ const Contact = () => {
                 <Paper sx={{border: 'none', boxShadow: 'none', padding: 4, marginY: 2}}>
                     <Stack>
                         <Item sx={{width: '50vw', margin: 'auto'}}>
-                            <img  src="https://antapp-marketing.com/wp-content/themes/Antapp2023/assets/images/feature-service3.svg"/>
+                            {/*<Image  path={'https://antapp-marketing.com/wp-content/themes/Antapp2023/assets/images/feature-top.svg'} alt={'alt'} aspectRatio={"3/2"}/>*/}
+                            {/*<img  src="https://antapp-marketing.com/wp-content/themes/Antapp2023/assets/images/feature-service3.svg"/>*/}
                         </Item>
                         <Item>
                             <Typography
@@ -303,14 +301,10 @@ const Contact = () => {
                     spacing={{ xs: 1, sm: 2, md: 4 }}
                 >
                     <Item>
-                            <span className={'btn-round'}>
-                                <a href="./productPaper">資料請求</a>
-                            </span>
+                        <MyButton text={'資料請求'} path={'/productPaper'} className={'btn-round'}/>
                     </Item>
                     <Item>
-                            <span className={'btn-round'}>
-                                <a href="./contact">無料相談はこちら</a>
-                            </span>
+                        <MyButton text={'無料相談はこちら'} path={'/contact'} className={'btn-round'}/>
                     </Item>
                 </Stack>
             </Container>
@@ -354,8 +348,7 @@ const Contact = () => {
                             </Typography>
                         </Item>
                         <Item sx={{width: '50vw', margin: 'auto'}}>
-                            <img
-                                src="https://antapp-marketing.com/wp-content/themes/Antapp2023/assets/images/feature-suport.svg"/>
+                            <Image  path={'https://antapp-marketing.com/wp-content/themes/Antapp2023/assets/images/feature-suport.svg'} alt={'alt'} aspectRatio={"3/2"}/>
                         </Item>
                     </Stack>
                 </Paper>
@@ -422,14 +415,10 @@ const Contact = () => {
                     spacing={{ xs: 1, sm: 2, md: 4 }}
                 >
                     <Item>
-                            <span className={'btn-round'}>
-                                <a href="./productPaper">資料請求</a>
-                            </span>
+                        <MyButton text={'資料請求'} path={'/productPaper'} className={'btn-round'}/>
                     </Item>
                     <Item>
-                            <span className={'btn-round'}>
-                                <a href="./contact">無料相談はこちら</a>
-                            </span>
+                        <MyButton text={'無料相談はこちら'} path={'/contact'} className={'btn-round'}/>
                     </Item>
                 </Stack>
             </Container>
@@ -437,8 +426,15 @@ const Contact = () => {
             <Container sx={{paddingTop: 10, paddingBottom: 10}}>
                 <ContactForm/>
             </Container>
+            <motion.div
+                initial={{ scaleX: 1 }}
+                animate={{ scaleX: 0, transition: { duration: 0.5, ease: "circOut" } }}
+                exit={{ scaleX: 1, transition: { duration: 0.5, ease: "circIn" } }}
+                style={{ originX: isPresent ? 0 : 1 }}
+                className="privacy-screen"
+            />
         </div>
     );
 };
 
-export default Contact;
+export default Product;
