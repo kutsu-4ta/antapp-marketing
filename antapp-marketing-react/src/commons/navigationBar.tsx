@@ -16,25 +16,33 @@ import "./navigationBar.css";
 import {Link} from "react-router-dom";
 import {motion, useIsPresent} from "framer-motion";
 import {MobileNavigation} from "../components/mobile/navigation/mobileNavigation";
+import {randomInt} from "crypto";
 
 export type menuItemType = {
+    en_name: string,
     name: string,
     path: string
 };
 
 const menuItems: menuItemType[] = [
     {
+        'en_name': 'Home',
         'name': 'ホーム',
         'path' : '/'
     },
     {
+        'en_name': 'feature',
         'name': '特徴',
         'path' : '/product'
     },
-    {   'name': '資料',
+    {
+        'en_name': 'paper',
+        'name': '資料',
         'path' : '/productPaper'
     },
-    {   'name': 'お問合わせ',
+    {
+        'en_name': 'contact',
+        'name': 'お問合わせ',
         'path' : '/contact'
     }
 ];
@@ -44,23 +52,32 @@ const menuItems: menuItemType[] = [
 function ResponsiveAppBar() {
     const isPresent = useIsPresent();    // 切り替えスクリーンで使用
 
-    const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-    const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+    const handleMenuButton = (menuItemName: string, index: number)=>{
+        const buttonElement = window.document.getElementById(menuItemName);
+        const newName = buttonElement?.childNodes[0].nodeValue == menuItems[index]['name'] ? menuItems[index]['en_name'] : menuItems[index]['name'];
+        buttonElement?.removeChild(buttonElement?.childNodes[0]);
+        const textNode = document.createTextNode(newName);
+        buttonElement?.appendChild(textNode);
+    }
 
-    const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorElNav(event.currentTarget);
-    };
-    const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorElUser(event.currentTarget);
-    };
-
-    const handleCloseNavMenu = () => {
-        setAnchorElNav(null);
-    };
-
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
-    };
+    // const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+    // const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+    //
+    // const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+    //     setAnchorElNav(event.currentTarget);
+    // };
+    // const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+    //     setAnchorElUser(event.currentTarget);
+    // };
+    //
+    // const handleCloseNavMenu = () => {
+    //     setAnchorElNav(null);
+    // };
+    //
+    // const handleCloseUserMenu = () => {
+    //     setAnchorElUser(null);
+    // };
+    //
 
     return (
         <AppBar position='fixed'
@@ -69,22 +86,14 @@ function ResponsiveAppBar() {
         }}
         >
             <Container maxWidth="xl">
-                <Toolbar disableGutters>
+                <Toolbar disableGutters className={'toolbar'}>
                     {/*<AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />*/}
                     <Typography
                         variant="h6"
                         noWrap
                         component="a"
                         href="/"
-                        sx={{
-                            mr: 2,
-                            display: { xs: 'none', md: 'flex' },
-                            fontFamily: 'Hiragino Kaku Gothic ProN',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'inherit',
-                            textDecoration: 'none',
-                        }}
+                        sx={{display: { xs: 'none', md: 'flex' }}}
                     >
                         Antapp
                     </Typography>
@@ -98,27 +107,22 @@ function ResponsiveAppBar() {
                         noWrap
                         component="a"
                         href=""
-                        sx={{
-                            mr: 2,
-                            display: { xs: 'flex', md: 'none' },
-                            flexGrow: 1,
-                            fontFamily: 'Hiragino Kaku Gothic ProN',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'inherit',
-                            textDecoration: 'none',
-                        }}
+                        sx={{display: { xs: 'flex', md: 'none' }}}
                     >
                         Antapp
                     </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'end'}}>
-                        {menuItems.map((menuContent) => (
+                    <Box className={'button-area'} sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }}}>
+                        {menuItems.map((menuContent:menuItemType, i:number) => (
                             <Button
                                 key={menuContent.name}
                                 // onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
                             >
-                                <Link to={menuContent.path}>
+                                <Link
+                                    id={menuContent.name}
+                                    to={menuContent.path}
+                                    onMouseEnter={()=>{handleMenuButton(menuContent.name, i)}}
+                                    onMouseLeave={()=>{handleMenuButton(menuContent.name, i)}}
+                                >
                                     {menuContent.name}
                                 </Link>
                                 <motion.div
