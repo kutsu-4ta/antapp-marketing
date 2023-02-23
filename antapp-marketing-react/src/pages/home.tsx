@@ -12,9 +12,10 @@ import ContactForm from "../commons/contactForm";
 import MyButton from "../commons/myBottun";
 import "./home.css";
 import "../styles/style.scss";
+import Particle from "../components/particle";
 
 const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : 'rgba(255,255,255,0)',
     ...theme.typography.body2,
     padding: theme.spacing(1),
     boxShadow: 'none',
@@ -46,25 +47,36 @@ export function Home() {
                 marginLeft: 0
             }}
             >
+                <Item
+                    sx={{
+                        position: 'fixed',
+                        top: '30vh',
+                        left: 0,
+                        zIndex: -1,
+                        width: '100vw'
+                    }}
+                >
+                    <Particle/>
+                </Item>
                 <Paper sx={{
                     border: 'none', boxShadow: 'none', padding: 0, paddingTop: 50, paddingLeft: 0,
                     marginLeft: 0, background: 'none',
                 }}>
-                    <motion.div
-                        initial={{opacity: 0}}
-                        animate={{opacity: 1, y: [50, 0]}}
-                        transition={{duration: 2.0, ease: "easeOut"}}
+                    <Stack
+                        justifyContent="space-evenly"
+                        alignItems="center"
+                        direction={{xs: 'column', sm: 'column'}}
+                        spacing={{xs: 1, sm: 2, md: 4}}
+                        sx={{
+                            paddingLeft: 0,
+                            marginLeft: 0
+                        }}
                     >
-                        <Stack
-                            justifyContent="space-evenly"
-                            alignItems="center"
-                            direction={{xs: 'column', sm: 'column'}}
-                            spacing={{xs: 1, sm: 2, md: 4}}
-                            sx={{
-                                paddingLeft: 0,
-                                marginLeft: 0
-                            }}
-                        >
+                        {/*<motion.div*/}
+                        {/*    initial={{opacity: 0}}*/}
+                        {/*    animate={{opacity: 1, y: [50, 0]}}*/}
+                        {/*    transition={{duration: 2.0, ease: "easeOut"}}*/}
+                        {/*>*/}
                             <Item
                                 sx={{
                                     paddingLeft: 0,
@@ -114,13 +126,13 @@ export function Home() {
                                     <MyButton text={'無料相談はこちら'} path={'/contact'} className={'btn-round'}/>
                                 </Item>
                             </Item>
-                        </Stack>
-                    </motion.div>
+                        {/*</motion.div>*/}
+                    </Stack>
                 </Paper>
             </Container>
             {/* Antappとは */}
-            <Container sx={{paddingTop: 10, paddingRight: 'inherit', paddingLeft: 'inherit'}}>
-                <Paper sx={{border: 'none', boxShadow: 'none', padding: 4, marginY: 2}}>
+            <Container sx={{paddingTop: 10, paddingRight: 'inherit', paddingLeft: 'inherit', backgroundColor: 'rgba(255,255,255,0)'}}>
+                <Paper sx={{border: 'none', boxShadow: 'none', padding: 4, marginY: 2, backgroundColor: 'rgba(255,255,255,0)'}}>
                     <Typography
                         variant="h2"
                         justifyContent="center"
@@ -133,11 +145,12 @@ export function Home() {
                             fontWeight: 400,
                             letterSpacing: '.3rem',
                             color: 'black',
+                            backgroundColor: 'rgba(255,255,255,0)',
                             textDecoration: 'none',
                         }}
                     >Antappとは</Typography>
-                    <Box sx={{padding: 4, marginY: 2}}>
-                        <Paper className={'about'} sx={{boxShadow: 'none', padding: 4, marginY: 2, border: 'none'}}>
+                    <Box sx={{padding: 4, marginY: 2, backgroundColor: 'rgba(255,255,255,0)'}}>
+                        <Paper className={'about'} sx={{boxShadow: 'none', padding: 0, marginY: 2, border: 'none', backgroundColor: 'rgba(255,255,255,0.9)'}}>
                             <Stack border={'solid'} borderColor={'black'}>
                                 <Item>
                                     <Typography
@@ -157,6 +170,7 @@ export function Home() {
                                             // letterSpacing: '0.5rem',
                                             color: 'black',
                                             textDecoration: 'none',
+                                            backgroundColor: 'rgba(255,255,255,0)'
                                         }}
                                     >
                                         私たちは企業の経営課題をマーケティングで解決するフリーランス集団です。<br/>
@@ -192,7 +206,7 @@ export function Home() {
                 </Paper>
             </Container>
             {/* お問合せ */}
-            <Container sx={{paddingTop: 10, paddingBottom: 10}}>
+            <Container sx={{paddingTop: 10, paddingBottom: 10, backgroundColor: 'rgba(255,255,255,0.9)'}}>
                 <ContactForm/>
             </Container>
         </div>
