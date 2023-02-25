@@ -12,37 +12,37 @@ import MenuItem from '@mui/material/MenuItem';
 // import Avatar from '@mui/material/Avatar';
 // import Tooltip from '@mui/material/Tooltip';
 // import AdbIcon from '@mui/icons-material/Adb';
-import "./navigationBar.css";
+import "./navigationBar.scss";
 import {Link} from "react-router-dom";
 import {motion, useIsPresent} from "framer-motion";
 import {MobileNavigation} from "../components/mobile/navigation/mobileNavigation";
 import {randomInt} from "crypto";
 
 export type menuItemType = {
-    en_name: string,
+    secondName: string,
     name: string,
     path: string
 };
 
 const menuItems: menuItemType[] = [
     {
-        'en_name': 'Home',
-        'name': 'ホーム',
+        'secondName': 'ホーム',
+        'name': 'Home',
         'path' : '/'
     },
     {
-        'en_name': 'feature',
-        'name': '特徴',
+        'secondName': '特徴',
+        'name': 'feature',
         'path' : '/product'
     },
     {
-        'en_name': 'paper',
-        'name': '資料',
+        'secondName': '資料',
+        'name': 'paper',
         'path' : '/productPaper'
     },
     {
-        'en_name': 'contact',
-        'name': 'お問合わせ',
+        'secondName': 'お問合わせ',
+        'name': 'contact',
         'path' : '/contact'
     }
 ];
@@ -54,10 +54,10 @@ function ResponsiveAppBar() {
 
     const handleMenuButton = (menuItemName: string, index: number)=>{
         const buttonElement = window.document.getElementById(menuItemName);
-        const newName = buttonElement?.childNodes[0].nodeValue == menuItems[index]['name'] ? menuItems[index]['en_name'] : menuItems[index]['name'];
-        buttonElement?.removeChild(buttonElement?.childNodes[0]);
-        const textNode = document.createTextNode(newName);
-        buttonElement?.appendChild(textNode);
+        const newName = buttonElement?.childNodes[0].nodeValue == menuItems[index]['name'] ? menuItems[index]['secondName'] : menuItems[index]['name'];
+        // buttonElement?.removeChild(buttonElement?.childNodes[0]);
+        // const textNode = document.createTextNode(newName);
+        // buttonElement?.appendChild(textNode);
     }
 
     // const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -115,16 +115,18 @@ function ResponsiveAppBar() {
                         {menuItems.map((menuContent:menuItemType, i:number) => (
                             <Button
                                 key={menuContent.name}
+                                onMouseEnter={()=>{handleMenuButton(menuContent.name, i)}}
+                                onMouseLeave={()=>{handleMenuButton(menuContent.name, i)}}
                                 // onClick={handleCloseNavMenu}
                             >
-                                <Link
-                                    id={menuContent.name}
-                                    to={menuContent.path}
-                                    onMouseEnter={()=>{handleMenuButton(menuContent.name, i)}}
-                                    onMouseLeave={()=>{handleMenuButton(menuContent.name, i)}}
-                                >
-                                    {menuContent.name}
-                                </Link>
+                                <div>
+                                    <Link
+                                        id={menuContent.name}
+                                        to={menuContent.path}
+                                    >
+                                        <span>{menuContent.name}<br/>{menuContent.secondName}</span>
+                                    </Link>
+                                </div>
                                 <motion.div
                                     initial={{ scaleX: 1 }}
                                     animate={{ scaleX: 0, transition: { duration: 0.5, ease: "circOut" } }}
