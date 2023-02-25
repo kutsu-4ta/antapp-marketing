@@ -9,7 +9,7 @@ import Typography from "@mui/material/Typography";
 // import {EmblaCarousel} from "../commons/carousel";
 // import "./product.css";
 import {styled} from "@mui/material/styles";
-import ContactForm from "../commons/contactForm";
+import ContactForm from "../components/contactForm";
 import {motion, useIsPresent} from "framer-motion";
 import ResponsiveAppBar from "../commons/navigationBar";
 // import Button from "@mui/material/Button";

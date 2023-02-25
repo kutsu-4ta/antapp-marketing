@@ -8,7 +8,7 @@ import {styled} from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import {Container, Stack} from "@mui/material";
 import {EmblaCarousel} from "../commons/carousel";
-import ContactForm from "../commons/contactForm";
+import ContactForm from "../components/contactForm";
 import MyButton from "../commons/myBottun";
 import "./home.css";
 import "../styles/style.scss";

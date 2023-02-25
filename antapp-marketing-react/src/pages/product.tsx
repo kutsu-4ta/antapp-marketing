@@ -5,7 +5,7 @@ import {Container, Stack, Divider} from "@mui/material";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import {styled} from "@mui/material/styles";
-import ContactForm from "../commons/contactForm";
+import ContactForm from "../components/contactForm";
 import {useIsPresent, motion} from "framer-motion";
 import ResponsiveAppBar from "../commons/navigationBar";
 import MyButton from "../commons/myBottun";
