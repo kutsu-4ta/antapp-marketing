@@ -118,15 +118,16 @@ function ResponsiveAppBar() {
                                 onMouseEnter={()=>{handleMenuButton(menuContent.name, i)}}
                                 onMouseLeave={()=>{handleMenuButton(menuContent.name, i)}}
                                 // onClick={handleCloseNavMenu}
+                                id={menuContent.name}
                             >
-                                <div>
                                     <Link
                                         id={menuContent.name}
                                         to={menuContent.path}
                                     >
-                                        <span>{menuContent.name}<br/>{menuContent.secondName}</span>
+                                        <div>
+                                            <span>{menuContent.name}<br/>{menuContent.secondName}</span>
+                                        </div>
                                     </Link>
-                                </div>
                                 <motion.div
                                     initial={{ scaleX: 1 }}
                                     animate={{ scaleX: 0, transition: { duration: 0.5, ease: "circOut" } }}

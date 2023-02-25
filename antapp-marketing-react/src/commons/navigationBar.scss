@@ -33,6 +33,7 @@
       //--shadow: 0 2px 8px -1px #{rgba(#275efe, .32)};
       //--shadow-hover: 0 4px 20px -2px #{rgba(#275efe, .5)};
       //--font-shadow: var(--font-size);
+      padding: 0;
       background: var(--background);
       border: solid var(--border-color);
       width: var(--width);
@@ -48,52 +49,32 @@
       //transform: translateY(var(--move-hover)) translateZ(0);
       transition: transform var(--duration) ease, box-shadow var(--duration) ease;
 
-      div {
-        overflow: hidden;
-        height: calc(var(--font-size) * 1.5);
+      a {
+        div {
+          overflow: hidden;
+          height: -webkit-fill-available; // ESLintでエラー出るので後で直す
 
-        a {
-          display: block;
-          backface-visibility: hidden;
-          text-shadow: 0 var(--font-shadow) 0 var(--text);
-          font-style: normal;
-          transition: transform var(--duration) ease;
-          transform: translateY(var(--m)) translateZ(0);
-          $i: 1;
-          @while $i < 12 {
-            &:nth-child(#{$i}) {
-              transition-delay: $i / 20 + s;
-            }
-            $i: $i + 1;
+          span {
+            --m: calc(var(--font-size) * 0.5);
+            display: block;
+            backface-visibility: hidden;
+            text-shadow: 0 var(--font-shadow) 0 var(--text);
+            font-style: normal;
+            transition: transform var(--duration) ease;
+            transform: translateY(var(--m)) translateZ(0);
+            line-height: 2rem;
           }
-        }
-      }
 
-      &:hover {
-        --y: var(--move-hover);
-        --shadow: var(--shadow-hover);
-
-        a {
-          --m: calc(var(--font-size) * -1.8);
-          //--m: calc(var(--font-size) * -1);
+          &:hover {
+            span {
+              --m: calc(var(--font-size) * -1.8);
+            }
+          }
         }
       }
     }
   }
 }
-//&:hover {
-//  border: solid #f6e634;
-//  background: var(--background);
-//  --y: -4px;
-//
-//  a {
-//    transform: translateY(var(--y)) translateZ(0);
-//  }
-//}
-
-//.button-area > Button:hover {
-//  border: solid #f6e634;
-//}
 
 a {
   text-decoration: none;
