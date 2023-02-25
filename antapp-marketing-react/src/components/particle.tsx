@@ -31,7 +31,7 @@ const Particles = () => {
     );
 
     return (
-        <points rotation={[-Math.PI / 2, 0, 0]}>
+        <points rotation={[-Math.PI / 2.5, 0, 4]}>
             <bufferGeometry attach="geometry">
                 <bufferAttribute
                     attach="attributes-position"
@@ -49,8 +49,10 @@ const Particles = () => {
         </points>
     );
 };
+
+// スクロールでカメラ移動（背景なので今回はオフにする）
 // const scene = new THREE.Scene();
-// const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000 );
+// const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 1000 );
 // camera.position.set(0, 200, 300);
 // camera.lookAt(scene.position);
 
