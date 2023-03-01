@@ -116,7 +116,7 @@ const Product = () => {
                 </Paper>
             </Container>
             <Container sx={{paddingTop: 10, paddingRight: 'inherit', paddingLeft: 'inherit'}}>
-                <Paper className={'typography-h2'} sx={{border: 'none', boxShadow: 'none', padding: 4, marginY: 2}}>
+                <Paper className={'typography'} sx={{border: 'none', boxShadow: 'none', padding: 4, marginY: 2}}>
                     <Typography
                         variant="h2"
                         justifyContent="center"
@@ -190,6 +190,7 @@ const Product = () => {
                 </Paper>
             </Container>
             <Container className="paperPreview" sx={{paddingTop: 10}}>
+                <Paper className={'typography'} sx={{border: 'none', boxShadow: 'none', padding: 4, marginY: 2}}>
                 <Typography
                     variant="h2"
                     justifyContent="center"
@@ -205,7 +206,8 @@ const Product = () => {
                         textDecoration: 'none',
                     }}
                 >マーケ担当が行う業務・ミッションを<br/>私たちが全て支援いたします</Typography>
-                <Paper sx={{border: 'none', boxShadow: 'none', padding: 4, marginY: 2}}>
+                </Paper>
+                <Paper className={'typography'} sx={{border: 'none', boxShadow: 'none', padding: 4, marginY: 2}}>
                     <Stack>
                         <Item>
                             <Typography
@@ -234,7 +236,8 @@ const Product = () => {
                     </Stack>
                 </Paper>
             </Container>
-            <Container className="paperPreview" sx={{paddingTop: 10}}>
+            <Paper className={'typography'} sx={{border: 'none', boxShadow: 'none', padding: 4, marginY: 2}}>
+                <Container className="paperPreview" sx={{paddingTop: 10}}>
                 <Typography
                     variant="h2"
                     justifyContent="center"
@@ -293,7 +296,9 @@ const Product = () => {
                     </Item>
                 </Stack>
             </Container>
+            </Paper>
             <Container className="paperPreview" sx={{paddingTop: 10}}>
+                <Paper className={'typography'} sx={{border: 'none', boxShadow: 'none', padding: 4, marginY: 2}}>
                 <Typography
                     variant="h2"
                     justifyContent="center"
@@ -309,7 +314,8 @@ const Product = () => {
                         textDecoration: 'none',
                     }}
                 >支援体制</Typography>
-                <Paper sx={{border: 'none', boxShadow: 'none', padding: 4, marginY: 2}}>
+                </Paper>
+                <Paper className={'typography'} sx={{border: 'none', boxShadow: 'none', padding: 4, marginY: 2}}>
                     <Stack>
                         <Item>
                             <Typography
@@ -339,6 +345,7 @@ const Product = () => {
                 </Paper>
             </Container>
             <Container className="paperPreview" sx={{paddingTop: 10}}>
+                <Paper className={'typography'} sx={{border: 'none', boxShadow: 'none', padding: 4, marginY: 2}}>
                 <Typography
                     variant="h2"
                     justifyContent="center"
@@ -406,6 +413,7 @@ const Product = () => {
                         <MyButton text={'無料相談はこちら'} path={'/contact'} className={'btn-round'}/>
                     </Item>
                 </Stack>
+                </Paper>
             </Container>
             {/* お問合せ */}
             <Container sx={{paddingTop: 10, paddingBottom: 10}}>
