@@ -42,9 +42,9 @@ export const MenuItem = ( props: propsType) => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
         >
-            <div className="icon-placeholder" style={style}/>
-            <div className="text-placeholder" style={style}>
-                <Link to={itemPath} className={className}>
+            <div className="icon" />
+            <div className="text" >
+                <Link to={itemPath} >
                     {itemName}
                 </Link>
             </div>

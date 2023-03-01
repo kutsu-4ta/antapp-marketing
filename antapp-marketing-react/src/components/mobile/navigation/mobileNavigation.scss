@@ -1,0 +1,15 @@
+ul {
+  --back-ground: rgb(255, 255, 255);
+  --font-size: 1.5rem;
+  --icon-with: 1.5rem;
+  li {
+    background-color: var(--back-ground);
+    margin-bottom: 0;
+      .icon {
+        width: var(--icon-with);
+      }
+    .text {
+      font-size: var(--font-size);
+    }
+  }
+}

@@ -49,7 +49,7 @@ const Product = () => {
                 <Paper sx={{border: 'none',
                     boxShadow: 'none',
                     padding: 0,
-                    paddingTop: 50,
+                    paddingTop: 30,
                     marginLeft: 0,
                     marginRight: 0,
                     background: 'none',
@@ -57,16 +57,8 @@ const Product = () => {
                     <Stack
                         justifyContent="space-evenly"
                         alignItems="center"
-                        direction={{ xs: 'row', sm: 'row' }}
-                        spacing={{ xs: 1, sm: 2, md: 0 }}
-                        sx={{padding: 0, margin: 0}}
-                    >
-                    <Stack
-                        justifyContent="space-evenly"
-                        alignItems="center"
                         direction={{ xs: 'column', sm: 'column' }}
                         spacing={{ xs: 1, sm: 2, md: 4 }}
-                        sx={{padding: 0, margin: 0}}
                     >
                         <Item
                             sx={{
@@ -116,25 +108,18 @@ const Product = () => {
                             </Typography>
                             <Item sx={{paddingTop: 5}}>
                                 <span className={'btn-round'}>
-                                    <a href="./contact">
-                                        無料相談はこちら
-                                    </a>
+                                    <a href="./contact">無料相談はこちら</a>
                                 </span>
                             </Item>
                         </Item>
                     </Stack>
-                    <Item sx={{paddingLeft: 0, marginLeft: 0}}>
-                        <Image  path={'https://antapp-marketing.com/wp-content/themes/Antapp2023/assets/images/feature-top.svg'} alt={'alt'} aspectRatio={"3/2"}/>
-                    </Item>
-                    </Stack>
                 </Paper>
             </Container>
             <Container sx={{paddingTop: 10, paddingRight: 'inherit', paddingLeft: 'inherit'}}>
-                <Paper sx={{border: 'none', boxShadow: 'none', padding: 4, marginY: 2}}>
+                <Paper className={'typography-h2'} sx={{border: 'none', boxShadow: 'none', padding: 4, marginY: 2}}>
                     <Typography
                         variant="h2"
                         justifyContent="center"
-                        fontSize={30}
                         noWrap
                         sx={{
                             mr: 2,
@@ -145,7 +130,7 @@ const Product = () => {
                             color: 'inherit',
                             textDecoration: 'none',
                         }}
-                    >中小企業が抱えるマーケティング課題を解決</Typography>
+                    >中小企業が抱える<br/>マーケティング課題を解決</Typography>
                     <Stack
                         justifyContent="space-evenly"
                         alignItems="center"

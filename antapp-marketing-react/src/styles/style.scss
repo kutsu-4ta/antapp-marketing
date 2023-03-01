@@ -113,6 +113,30 @@ body {
   --yellow: #ffbb00;
 }
 
+// 資料 ---------------------------------------------------->>
+.product-paper-grid {
+  --bacgroud-default: #f5f5f5;
+  --background-hoverd: #ffffff;
+  --font-size-title: 1.5rem;
+  --font-size-sentence: 1rem;
+  div {
+    background: var(--bacgroud-default);
+    box-shadow: #ff0000;
+    a {
+      font-size: var(--font-size-title);
+    }
+  }
+  &:hover {
+    box-shadow: black;
+    .product-paper-tile {
+      cursor: pointer;
+      background: var(--background-hoverd);
+    }
+  }
+}
+
+// <<--------------------------------------------------------
+
 // お問合せフォーム ------------------------------------------>>
 .form-input {
   --error-text: #ff2b2b;
@@ -219,3 +243,16 @@ button {
   flex: 1;
 }
 // <<-------------------------------------------モバイルナビゲーション
+
+.typography-h2 {
+  --font-size: 4.8vw !important;
+  @media(max-width: 599px) {
+  }
+  .xs{
+    display: none;
+  }
+
+  h2 {
+    font-size: var(--font-size);
+  }
+}

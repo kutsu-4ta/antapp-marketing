@@ -12,6 +12,7 @@ import {styled} from "@mui/material/styles";
 import ContactForm from "../components/contactForm";
 import {motion, useIsPresent} from "framer-motion";
 import ResponsiveAppBar from "../commons/navigationBar";
+import '../styles/style.scss';
 // import Button from "@mui/material/Button";
 
 // const Item = styled(Paper)(({ theme }) => ({
@@ -87,21 +88,19 @@ const ProductPaper = () => {
                     </Typography>
 
                     {/* 資料グリッド */}
-                    <Grid container spacing={2} columns={12}>
+                    <Grid container spacing={{ xs: 1, sm: 2, md: 4 }} columns={12}>
                             {productDocuments.map((productDocuments) => (
                                 <Grid
+                                    className={"product-paper-grid"}
                                     key={productDocuments.name}
                                     item xs={4}
-                                    spacing={{ xs: 1, sm: 2, md: 4 }}
                                     sx={{marginTop: 10}}
                                 >
-                                    <ProductPaperTile className={"btn"}
-                                        sx={{
-                                            height: {xs: 100, md: 200},
-                                    }}>
-                                            <a href={productDocuments.url}>
-                                                {productDocuments.name}
-                                            </a>
+                                    <ProductPaperTile className={"product-paper-tile"}
+                                        sx={{height: {xs: 100, md: 200},}}>
+                                        <a href={productDocuments.url}>
+                                            {productDocuments.name}
+                                        </a>
                                     </ProductPaperTile>
                                 </Grid>
                             ))}

@@ -5,6 +5,7 @@ import { useDimensions } from "../../../commons/use-dimensions";
 import { MenuToggle } from "./MenuToggle";
 import { Navigation } from "./Navigation";
 import {menuItemType} from "../../../commons/navigationBar";
+import './mobileNavigation.scss';
 
 const sidebar = {
     open: (height = 1000) => ({
@@ -43,7 +44,7 @@ export const MobileNavigation = (props:propsType) => {
             ref={containerRef}
             className={'mobile-navigation'}
         >
-            <motion.div className="background" variants={sidebar} />
+            <motion.div variants={sidebar} />
             <Navigation menuItems={props.menuItems} />
             <MenuToggle toggle={() => toggleOpen()} />
         </motion.nav>
