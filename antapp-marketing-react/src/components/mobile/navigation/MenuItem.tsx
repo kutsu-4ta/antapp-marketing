@@ -7,6 +7,8 @@ const variants = {
     open: {
         y: 0,
         opacity: 1,
+        display: 'block',
+        background: 'rgba(255,255,255,0)',
         transition: {
             y: { stiffness: 1000, velocity: -100 }
         }
@@ -14,6 +16,8 @@ const variants = {
     closed: {
         y: 50,
         opacity: 0,
+        display: 'none',
+        background: '#FFFFFFFF',
         transition: {
             y: { stiffness: 1000 }
         }
