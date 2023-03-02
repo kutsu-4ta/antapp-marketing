@@ -5,7 +5,6 @@ import { useDimensions } from "../../../commons/use-dimensions";
 import { MenuToggle } from "./MenuToggle";
 import { Navigation } from "./Navigation";
 import {menuItemType} from "../../../commons/navigationBar";
-import './mobileNavigation.scss';
 
 const sidebar = {
     open: (height = 1000) => ({

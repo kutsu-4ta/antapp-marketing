@@ -2,6 +2,7 @@ import * as React from "react";
 import {Link} from "react-router-dom";
 import {motion, useIsPresent} from "framer-motion";
 import {menuItemType} from "../../../commons/navigationBar";
+import * as CSS from "csstype";
 
 const variants = {
     open: {
@@ -36,7 +37,8 @@ export const MenuItem = ( props: propsType) => {
     const itemName = props.menuItem.name;
     const itemPath = props.menuItem.path;
     // const className    = props.menuItem.className;
-    const className    = "text-placeholder";
+    const iconPlaceholder: CSS.Properties    = { width: '1.5rem' };
+    const textPlaceholder: CSS.Properties    = { fontSize: '1.5rem', textAlign: 'start' };
 
     const style = { border: `2px solid ${colors[0]}` };
 
@@ -46,8 +48,8 @@ export const MenuItem = ( props: propsType) => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
         >
-            <div className="icon" />
-            <div className="text" >
+            <div style={iconPlaceholder} />
+            <div style={textPlaceholder} >
                 <Link to={itemPath} >
                     {itemName}
                 </Link>
